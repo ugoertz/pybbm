@@ -148,7 +148,7 @@ class DefaultPermissionHandler(object):
             return True
         if post.on_moderation:
             return post.user == user or user in post.topic.forum.moderators.all()
-        return True
+        return self.may_view_topic(user, post.topic)
 
     def may_edit_post(self, user, post):
         """ return True if `user` may edit `post` """
@@ -178,6 +178,14 @@ class DefaultPermissionHandler(object):
         By default always True
         """
         return True
+
+    def may_edit_topic_slug(self, user):
+        """
+        returns True if `user` may choose topic's slug, False otherwise.
+        When True adds field slug in the Topic form.
+        By default always False
+        """
+        return False
 
 
 perms = util.resolve_class(defaults.PYBB_PERMISSION_HANDLER)

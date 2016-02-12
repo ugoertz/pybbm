@@ -1,14 +1,29 @@
 PyBBM Changelog
 ===============
 
-0.16.1 -> dev
--------------
+0.17 -> 0.17.2
+--------------
+* Fast fix for migrations for Posgres database.
+  If you already get and applied migrations from 0.17 version (for example on MySQL DB) you can skip new
+  migrations with `manage.py migrate pybb --fake`
+
+0.16.1 -> 0.17
+--------------
 * Topic and post creation wrapped in transaction
 * All topic/post/poll related forms can be overrided when custom view inherites pybbm view
 * Demo data for example projects
 * Using active markup engine when quoting posts via javascript
 * Functionality to support disabling default pybbm subscriptions and notifications and
   new settings: :ref:`PYBB_DISABLE_SUBSCRIPTIONS` and :ref:`PYBB_DISABLE_NOTIFICATIONS`
+* Fixed sorl.thumbnail/easy_thumbnail compatibility in standard `pybb/avatar.html` template
+* Improved example projects
+* Removed applying `urlize` filter over html produced by markdown parser
+  (it doesn't play nicely with html markup as noted in django's docs)
+* django 1.8 compatibility
+* common django layout for test project
+* use mysqlclient package for testing installation with mysql database backend on python 3
+* optional enabling "nice urls" for entire forum,
+  that looks like '<forum prefix>/c/<category slug>/<forum slug>/<topic slug>/'
 
 0.16 -> 0.16.1
 --------------

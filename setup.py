@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    version='0.16.1',
+    version='0.17.3',
     description='PyBB Modified. Django forum application',
     long_description=open('README.rst').read(),
     author='Pavel Zhukov',
@@ -13,6 +13,7 @@ setup(
     package_data={'': ['pybb/templates', 'pybb/static']},
     install_requires=[
         'django-annoying',
+        'unidecode',
     ],
     test_suite='runtests.runtests',
     license="BSD",
