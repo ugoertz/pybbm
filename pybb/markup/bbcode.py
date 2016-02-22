@@ -3,7 +3,6 @@ from __future__ import unicode_literals, absolute_import
 
 from bbcode import Parser
 from django.forms import Textarea
-from django.template import Context
 from django.template.loader import get_template
 from pybb.markup.base import smile_it, BaseParser
 
@@ -25,7 +24,7 @@ class BBCodeWidget(Textarea):
 
     def render(self, *args, **kwargs):
         tpl = get_template('pybb/markup/bbcode_widget.html')
-        ctx = Context({'widget_output': super(BBCodeWidget, self).render(*args, **kwargs)})
+        ctx = {'widget_output': super(BBCodeWidget, self).render(*args, **kwargs)}
         return tpl.render(ctx)
 
 
