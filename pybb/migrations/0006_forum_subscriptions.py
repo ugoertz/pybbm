@@ -9,7 +9,7 @@ from django.conf import settings
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('pybb', '0005_auto_20151108_1528'),
+        ('pybb', '0006_auto_20160220_1634'),
     ]
 
     operations = [
